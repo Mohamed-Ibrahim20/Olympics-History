@@ -1,0 +1,46 @@
+erDiagram
+    ATHLETES {
+        int ID PK
+        string Name
+        char Sex
+        int Height
+        decimal Weight
+        string Team
+        char NOC
+        int Country_ID FK
+    }
+    
+    COUNTRIES {
+        int Country_ID PK
+        char NOC UK
+        string Region
+        string Notes
+    }
+    
+    EVENTS {
+        int Event_ID PK
+        string Event UK
+        string Sport
+    }
+    
+    GAMES {
+        string Games_ID PK
+        string Games
+        int Year
+        string Season
+        string City
+    }
+    
+    RESULTS {
+        int Result_ID PK
+        int Athlete_ID FK
+        int Event_ID FK
+        string Games_ID FK
+        int Age
+        string Medal
+    }
+    
+    ATHLETES ||--o{ RESULTS : "participates in"
+    COUNTRIES ||--o{ ATHLETES : "represents"
+    EVENTS ||--o{ RESULTS : "contains"
+    GAMES ||--o{ RESULTS : "hosts"
