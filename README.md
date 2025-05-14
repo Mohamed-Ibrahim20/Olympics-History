@@ -70,7 +70,6 @@ erDiagram
     }
 ```
 
-![Database Schema](https://raw.githubusercontent.com/Mohamed-Ibrahim20/Olympics-History/main/DB%20SCHEMA.jpg)
 
 *Figure: Visual representation of the database schema.*
 
