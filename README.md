@@ -1,162 +1,50 @@
-# Olympics History Analysis
+# Olympic Data Dashboard with PowerBI
 
-![Olympics Rings](https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Olympic_rings_without_rims.svg/1200px-Olympic_rings_without_rims.svg.png)
+This repository contains a PowerBI dashboard developed to analyze the "120 Years of Olympic History - Athletes and Results" dataset, spanning from Athens 1896 to Rio 2016. The dashboard provides an interactive visualization of Olympic data, offering insights into medal distributions, athlete demographics, and country performances. Built using PowerBI, this project transforms raw data into actionable visualizations, making it an excellent resource for sports analysts, data enthusiasts, and Olympic history researchers.
 
-Welcome to the **Olympics History** project! This repository hosts a Jupyter notebook that explores the "120 Years of Olympic History - Athletes and Results" dataset, available on GitHub at [https://github.com/Mohamed-Ibrahim20/Olympics-History](https://github.com/Mohamed-Ibrahim20/Olympics-History). Using data analysis and visualizations, this project reveals insights into athlete performances, medal distributions, and trends spanning over a century of Olympic Games.
+## Project Overview
 
----
+The dashboard leverages a comprehensive dataset from Kaggle (https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results/data), which includes records of athletes, events, games, and results. The goal was to create an intuitive interface to explore key metrics such as total medals, gold medal leaders, and athlete age distributions, all presented through dynamic charts and maps. This project was implemented using PowerBI to craft an interactive and visually appealing dashboard.
 
-## Dataset Description
+## Dashboard Features
 
-The dataset, sourced from [Kaggle](https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results/data), covers Olympic Games from Athens 1896 to Rio 2016. It includes detailed records of athletes, events, and results organized into five key tables:
+- **Total Metrics**: Displays an overview with 39,783 total medals (13,372 Gold, 13,116 Silver, 13,295 Bronze) and 135,571 total athletes.
+- **World Map Visualization**: Highlights medal counts by country, with interactive filtering by year, country, medal type, gender, sport, and age group.
+- **Medal Distribution by Sport**: Bar chart showing top sports like Athletics, Swimming, and Cycling based on medal counts.
+- **Medal Distribution by Country**: Stacked bar chart comparing medal types (Gold, Silver, Bronze) for top countries like the United States, Soviet Union, and Germany.
+- **Total Medals by Age Group**: Bar chart breaking down medal counts across age buckets (Under 20, 20-30, 30-50, Above 50).
+- **Top 5 Athletes Table**: Lists leading athletes (e.g., Michael Phelps with 18 medals, Larisa Latynina with 18) with their countries and total medals.
 
-- **COUNTRIES**: Country details and National Olympic Committee (NOC) codes.
-- **ATHLETES**: Athlete information, including name, gender, height, weight, and team.
-- **EVENTS**: Olympic events and their associated sports.
-- **GAMES**: Details of each Olympic Games, such as year, season, and host city.
-- **RESULTS**: Performance records, including medals won by athletes in specific events.
+## Technical Details
 
----
+- **Tool**: Microsoft PowerBI
+- **Data Source**: Kaggle dataset (CSV files processed and imported into PowerBI).
+- **Date Range**: 1896–2016 (based on available data).
+- **Interactivity**: Filters allow users to drill down by year, country, gender, sport, and age, enhancing data exploration.
 
-## Database Schema
+## Screenshots
 
-The dataset's structure is illustrated below with an Entity-Relationship Diagram (ERD) in Mermaid syntax, followed by a visual representation:
+![Olympic Dashboard Screenshot](https://raw.githubusercontent.com/Mohamed-Ibrahim20/Olympics-History/main/dashboard_screenshot.jpg)*Figure: Screenshot of the PowerBI dashboard showcasing key visualizations.*
 
-```mermaid
-erDiagram
-    COUNTRIES ||--o{ ATHLETES : represents
-    ATHLETES ||--o{ RESULTS : participates_in
-    EVENTS ||--o{ RESULTS : contains
-    GAMES ||--o{ RESULTS : hosts
+## How to Use
 
-    COUNTRIES {
-        int Country_ID PK
-        char NOC
-        string Region
-        string Notes
-    }
+1. **Clone the Repository**:
 
-    ATHLETES {
-        int ID PK
-        string Name
-        char Sex
-        int Height
-        decimal Weight
-        string Team
-        char NOC
-        int Country_ID FK
-    }
-
-    EVENTS {
-        int Event_ID PK
-        string Event
-        string Sport
-    }
-
-    GAMES {
-        string Games_ID PK
-        int Year
-        string Season
-        string City
-    }
-
-    RESULTS {
-        int Result_ID PK
-        int Athlete_ID FK
-        int Event_ID FK
-        string Games_ID FK
-        int Age
-        string Medal
-    }
-```
-
-
-*Figure: Visual representation of the database schema.*
-
----
-
-## Notebook Content
-
-The `Olympics_History.ipynb` notebook offers a range of analyses, including:
-
-- **Medal Counts**: Aggregates medals by country, sport, or athlete.
-- **Athlete Insights**: Analyzes distributions of age, height, and weight.
-- **Historical Trends**: Visualizes participation and performance changes over time.
-- **Event Breakdowns**: Examines the diversity of sports and events in Olympic history.
-
-Each analysis is accompanied by explanations and visualizations for clarity and engagement.
-
----
-
-## Prerequisites
-
-To run the notebook, you'll need:
-
-- **Python 3.x**
-- **Jupyter Notebook** or **JupyterLab**
-- Required libraries:
-  - `pandas`
-  - `numpy`
-  - `matplotlib`
-  - `seaborn`
-
-Install these with:
-```bash
-pip install pandas numpy matplotlib seaborn
-```
-
----
-
-## How to Run the Notebook
-
-Follow these steps to set up and run the project:
-
-1. **Download the Dataset**:
-   - Get the dataset from [Kaggle](https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results/data).
-   - Place the CSV files in a `data/` directory within the repository.
-
-2. **Clone the Repository**:
    ```bash
    git clone https://github.com/Mohamed-Ibrahim20/Olympics-History.git
    cd Olympics-History
    ```
+2. **Download the Dataset**: Obtain the dataset from https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results/data and place the CSV files in a `data/` folder.
+3. **Open in PowerBI**: Load the included `.pbix` file (if uploaded) or recreate the dashboard by importing the dataset and replicating the visualizations.
+4. **Explore**: Use the interactive filters to analyze specific metrics and trends.
 
-3. **Install Dependencies**:
-   ```bash
-   pip install pandas numpy matplotlib seaborn
-   ```
+## Future Improvements
 
-4. **Launch Jupyter**:
-   ```bash
-   jupyter notebook
-   ```
-
-5. **Open and Run**:
-   - In Jupyter, navigate to `Olympics_History.ipynb`.
-   - Run the cells in sequence, ensuring the dataset is in the `data/` directory.
-
-For an online option, upload the notebook to **Google Colab** and adjust the data paths as needed.
-
----
-
-## Contributing
-
-Contributions are welcome! To contribute:
-
-1. Fork the repository.
-2. Create a branch for your changes.
-3. Commit your updates with descriptive messages.
-4. Push to your fork and submit a pull request.
-
-Please include thorough documentation and follow Python best practices.
-
----
+- Incorporate data from the 2020 and 2022 Olympics (post-2016) for updated insights.
+- Add more advanced analytics, such as predictive models for future performances.
+- Enhance accessibility with exportable reports and additional visualizations.
 
 ## Acknowledgments
 
-- **Data Source**: [120 Years of Olympic History - Athletes and Results](https://www.kaggle.com/datasets/heesoo37/120-years-of-olympic-history-athletes-and-results/data) by Heesoo37 on Kaggle.
-- **Tools**: Gratitude to the creators of Jupyter, Pandas, Matplotlib, and Seaborn.
-
----
-
-Enjoy diving into Olympic history with data! For questions or suggestions, feel free to open an issue or reach out.
+- **Data Source**: 120 Years of Olympic History - Athletes and Results by Heesoo37 on Kaggle.
+- **Tools**: Thanks to Microsoft for PowerBI and its robust data visualization capabilities.
