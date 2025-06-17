@@ -24,7 +24,7 @@ The dashboard leverages a comprehensive dataset from Kaggle (https://www.kaggle.
 
 ## Screenshots
 
-![Olympic Dashboard Screenshot](https://raw.githubusercontent.com/Mohamed-Ibrahim20/Olympics-History/main/dashboard_screenshot.jpg)*Figure: Screenshot of the PowerBI dashboard showcasing key visualizations.*
+![Olympic Dashboard Screenshot](dashboard_screenshot.png)*Figure: Screenshot of the PowerBI dashboard showcasing key visualizations.*
 
 ## How to Use
 
